@@ -6,7 +6,7 @@ import TypeField from "./TypeField";
 
 const Home = () => {
     const [data, setData] = useState("");
-    const arr = [1, 2, 3, 4, 5, 6,7,8,9,10];
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     useEffect(() => {
         fetch('https://pokeapi.co/api/v2/pokemon/ditto')
@@ -34,33 +34,28 @@ const Home = () => {
     //     })
     // }
 
-
     return (
         <>
             <h1>Pokemon</h1>
             <Stack direction="row"
-                    justifyContent="space-around"
-                    alignItems="center"
-                    spacing={12}>
-            <SearchField />
-            <TypeField />
+                justifyContent="space-around"
+                alignItems="center"
+                spacing={12}>
+                <SearchField />
+                <TypeField />
             </Stack>
-            <div style={{ display: "flex", margin: "20px 20px", padding: "20px 20px", "flex-wrap": "wrap", gap: "10px 20px" }} container spacing={16} justify="flex-start">
-
+            <div style={{ display: "flex", margin: "20px 20px", padding: "20px 20px", flexWrap: "wrap", gap: "10px 20px" }} container spacing={16} justify="flex-start">
                 {arr.map((item) => (
                     <CardContainer key={item} data={data} />
                 ))}
             </div>
-            <div style={{marginBottom: 100}}>
+            <div style={{ marginBottom: 100 }}>
                 <Stack direction="row"
                     justifyContent="space-around"
                     alignItems="center"
                     spacing={12}>
-                    <Button variant="outlined">Primary</Button>
-
-                    <Button variant="outlined" href="#outlined-buttons">
-                        Link
-                    </Button>
+                    <Button variant="outlined" href="#">Previous</Button>
+                    <Button variant="outlined" href="#">Next</Button>
                 </Stack>
             </div>
         </>

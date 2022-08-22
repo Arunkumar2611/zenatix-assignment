@@ -8,9 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import PokemonCard from './PokemonCard';
 
-
 const CardContainer = (props) => {
-    
     const {name, id, type} = props
     console.log(props);
 
@@ -18,13 +16,13 @@ const CardContainer = (props) => {
         <Card sx={{ maxWidth: 345 }}>
 
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h6" color="text.secondary">
                     name
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h6" color="text.secondary">
                     id
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="h6" color="text.secondary">
                     type
                 </Typography>
             </CardContent>
