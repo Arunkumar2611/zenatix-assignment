@@ -5,34 +5,15 @@ import SearchField from "./SearchField";
 import TypeField from "./TypeField";
 
 const Home = () => {
-    const [data, setData] = useState("");
+    const [data, setData] = useState([]);
     const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        fetch('https://pokeapi.co/api/v2/pokemon/?offset=151&limit=2')
             .then(response => response.json())
-            .then(pokemondata => setData(pokemondata));
+            .then(pokemondata => setData(pokemondata.results));
     }, [])
 
-    // useEffect(() => {
-    //     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-    //     .then(response => response.json())
-    //     .then(function(allpokemon){
-    //         allpokemon.results.forEach(function(pokemon){
-    //             fetchPokemonData(pokemon);
-    //         })
-    //     })
-    // }, [])
-
-    // function fetchPokemonData(pokemon){
-    //     let url = pokemon.url // <--- this is saving the pokemon url to a variable to use in the fetch. 
-    //                                 //Example: https://pokeapi.co/api/v2/pokemon/1/"
-    //     fetch(url)
-    //     .then(response => response.json())
-    //     .then(function(pokeData){
-    //         console.log(pokeData)
-    //     })
-    // }
 
     return (
         <>
@@ -45,9 +26,11 @@ const Home = () => {
                 <TypeField />
             </Stack>
             <div style={{ display: "flex", margin: "20px 20px", padding: "20px 20px", flexWrap: "wrap", gap: "10px 20px" }} container spacing={16} justify="flex-start">
-                {arr.map((item) => (
-                    <CardContainer key={item} data={data} />
-                ))}
+                
+            {data.map((item, index) => (
+                    <CardContainer key={index} data={item} />
+            ))}
+
             </div>
             <div style={{ marginBottom: 100 }}>
                 <Stack direction="row"

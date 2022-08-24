@@ -5,7 +5,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const TypeField = () => {
-  const [type, setType] = React.useState('');
+  const [type, setType] = React.useState();
+  const Ptypes = ["normal","fire", "water", "grass", "electric", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dark", "dragon", "steel", "fairy"]
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -21,12 +22,11 @@ const TypeField = () => {
         label="Type"
         onChange={handleChange}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={10}>A</MenuItem>
-        <MenuItem value={20}>B</MenuItem>
-        <MenuItem value={30}>C</MenuItem>
+        {
+          Ptypes.map((types) => (
+            <MenuItem value={types}>{types}</MenuItem>
+          ))
+        }
       </Select>
     </FormControl>
   );
